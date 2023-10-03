@@ -1,0 +1,33 @@
+program: finetune.py
+method: bayes
+metric:
+  name: test_auc
+  goal: maximize
+parameters:
+  device:
+    values: [0]
+  learning_rate:
+    values: [0.0001, 0.0005, 0.001, 0.002]
+  batch_size:
+    values: [32, 64, 128]
+  epochs:
+    values: [15]
+  seed:
+    values: [0]
+  drop_rate:
+    values: [0.3, 0.5]
+  warmup:
+    values: [20, 10]
+    
+  num_layers:
+    values: [1]
+  temperature:
+    values: [1]
+  num_hidden:
+    values: [128]
+  num_features:
+    values: [1024]
+  dataset:
+    values: ['Twibot-retweet']
+command:
+  - /data/wangbojie/www/finetuneV2/finetune.sh
